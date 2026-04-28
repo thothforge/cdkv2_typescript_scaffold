@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: #{project_name}#
+  description: CDKv2 TypeScript scaffold with cdk-nag and multi-environment support
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: infrastructure
+  lifecycle: production
+  owner: #{owner}#

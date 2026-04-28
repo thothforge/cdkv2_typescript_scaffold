@@ -1,17 +1,19 @@
-// import * as cdk from 'aws-cdk-lib/core';
-// import { Template } from 'aws-cdk-lib/assertions';
-// import * as Cdkv2ScaffoldProject from '../lib/cdkv2_scaffold_project-stack';
+import * as cdk from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
+import { FoundationStack } from '../lib/stacks/foundation/foundation-stack.js';
 
-// example test. To run these tests, uncomment this file along with the
-// example resource in lib/cdkv2_scaffold_project-stack.ts
-test('SQS Queue Created', () => {
-//   const app = new cdk.App();
-//     // WHEN
-//   const stack = new Cdkv2ScaffoldProject.Cdkv2ScaffoldProjectStack(app, 'MyTestStack');
-//     // THEN
-//   const template = Template.fromStack(stack);
-
-//   template.hasResourceProperties('AWS::SQS::Queue', {
-//     VisibilityTimeout: 300
-//   });
+test('Foundation Stack creates S3 bucket with encryption', () => {
+  const app = new cdk.App();
+  const stack = new FoundationStack(app, 'TestFoundation', {
+    projectName: 'Test',
+    environment: 'dev',
+  });
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties('AWS::S3::Bucket', {
+    BucketEncryption: {
+      ServerSideEncryptionConfiguration: [
+        { ServerSideEncryptionByDefault: { SSEAlgorithm: 'AES256' } },
+      ],
+    },
+  });
 });

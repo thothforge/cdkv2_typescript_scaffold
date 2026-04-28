@@ -1,0 +1,28 @@
+[thothcf]
+project_id = "cdkv2_scaffold_project"
+project_type = "cdkv2"
+
+[template_input_parameters.project_name]
+template_value = "MyProject"
+condition = "^[a-zA-Z0-9\\-]+$"
+description = "Project Name"
+
+[template_input_parameters.deployment_region]
+template_value = "us-east-1"
+condition = "^[a-z]{2}-[a-z]{4,10}-\\d$"
+description = "AWS Region"
+
+[template_input_parameters.owner]
+template_value = "platform-team"
+condition = "^[a-zA-Z0-9\\-]+$"
+description = "Team or role owner"
+
+[template_input_parameters.environment]
+template_value = "dev"
+condition = "(dev|qa|stg|prd)"
+description = "Target environment"
+
+[context_sources]
+description = "Architecture/OpenSpec definition files for Kiro steering docs"
+target = ".kiro/steering"
+supported_extensions = [".md", ".yaml", ".yml", ".txt"]
