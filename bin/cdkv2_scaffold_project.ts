@@ -2,8 +2,8 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { AwsSolutionsChecks } from 'cdk-nag';
-import { FoundationStack } from '../lib/stacks/foundation/foundation-stack.js';
-import { loadConfig } from '../project_configs/config-loader.js';
+import { FoundationStack } from '../lib/stacks/foundation/foundation-stack';
+import { loadConfig } from '../project_configs/config-loader';
 
 const app = new cdk.App();
 const config = loadConfig();
@@ -26,4 +26,5 @@ new FoundationStack(app, `${config.project_name}-Foundation-${environment}`, {
   environment,
 });
 
-cdk.Aspects.of(app).add(new AwsSolutionsChecks({ verbose: true }));
+// cdk-nag v3: instantiate with scope directly (no Aspects.of().add())
+new AwsSolutionsChecks(app, { verbose: true });

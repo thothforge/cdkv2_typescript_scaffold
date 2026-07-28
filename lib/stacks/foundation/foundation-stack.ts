@@ -1,6 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { SampleBucket } from '../../constructs/sample-bucket.js';
+import { SampleBucket } from '../../constructs/sample-bucket';
 
 export interface FoundationStackProps extends cdk.StackProps {
   projectName: string;

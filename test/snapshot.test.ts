@@ -1,6 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { FoundationStack } from '../lib/stacks/foundation/foundation-stack.js';
+import { FoundationStack } from '../lib/stacks/foundation/foundation-stack';
 
 describe('Snapshot tests', () => {
   test('Foundation stack matches snapshot', () => {
