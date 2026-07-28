@@ -11,11 +11,6 @@
     "aws-knowledge-mcp": {
       "url": "https://knowledge-mcp.global.api.aws"
     },
-    "awslabs.aws-diagram-mcp-server": {
-      "command": "uvx",
-      "args": ["awslabs.aws-diagram-mcp-server@latest"],
-      "env": { "FASTMCP_LOG_LEVEL": "ERROR" }
-    },
     "thothctl": {
       "command": "thothctl",
       "args": ["mcp", "server", "--stdio"]
