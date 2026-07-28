@@ -8,3 +8,17 @@ repos:
       - id: check-json
       - id: detect-private-key
       - id: check-merge-conflict
+  - repo: local
+    hooks:
+      - id: eslint
+        name: eslint
+        entry: npx eslint --ext .ts
+        language: system
+        types: [typescript]
+        pass_filenames: true
+      - id: prettier
+        name: prettier
+        entry: npx prettier --check
+        language: system
+        types: [typescript]
+        pass_filenames: true
